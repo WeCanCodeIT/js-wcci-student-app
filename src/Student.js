@@ -3,11 +3,12 @@ class Student {
     return this.enrolled;
   }
 
-  constructor(firstAssignment) {
+  constructor(id, firstName = "John", lastName = "Doe") {
     this.assignments = [];
     this.enrolled = false;
-
-    this.assignments.push(firstAssignment);
+    this.firstName = firstName;
+    this.id = id;
+    this.lastName = lastName;
   }
 
   enroll() {
@@ -16,6 +17,14 @@ class Student {
 
   getAssignmentsLength() {
     return this.assignments.length;
+  }
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  getId() {
+    return this.id;
   }
 
   graduate() {

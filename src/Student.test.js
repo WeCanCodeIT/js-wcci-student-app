@@ -4,7 +4,7 @@ describe("Student", () => {
   let underTest;
 
   beforeEach(() => {
-    underTest = new Student("Entrance Project");
+    underTest = new Student("hraeswh5432", "Donny", "Hamilton");
   });
 
   describe("enroll", () => {
@@ -43,9 +43,13 @@ describe("Student", () => {
     });
   });
 
-  describe("constructor", () => {
-    test("should be able to initialize a student with an assignment", () => {
-      expect(underTest.getAssignmentsLength()).toEqual(1);
+  describe("getFullName", () => {
+    test("should return a students full name", () => {
+      const actual = underTest.getFullName();
+
+      expect(actual).toBe("Donny Hamilton");
     });
   });
+
+  describe("constructor", () => {});
 });
