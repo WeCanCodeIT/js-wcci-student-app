@@ -15,6 +15,10 @@ class Student {
     this.enrolled = true;
   }
 
+  getAssignments() {
+    return this.assignments;
+  }
+
   getAssignmentsLength() {
     return this.assignments.length;
   }

@@ -2,6 +2,7 @@ const input = require("readline-sync");
 
 const Cohort = require("./src/Cohort");
 const Student = require("./src/Student");
+const CodeInstructor = require("./src/CodeInstructor");
 
 console.log("Welcome to NotPoliSchool!");
 console.log("-------------------------");
@@ -11,10 +12,12 @@ console.log("-------------------------");
 console.log();
 console.log("1. Print current cohort roster");
 console.log("2. Retrieve a specific Student");
+console.log("3. Give an assignment to the cohort");
 console.log();
 console.log();
 
 const javaScript = new Cohort();
+const codeInstructor = new CodeInstructor();
 javaScript.addStudent(new Student("hrtwyhsx4436"));
 javaScript.addStudent(new Student("hremnsdrf62366", "Donny", "Hamilton"));
 
@@ -27,6 +30,15 @@ switch (userSelection) {
 
   case "2":
     printIndividualStudent();
+    break;
+
+  case "3":
+    // codeInstructor.getCohortStudents().forEach(student => {
+    //   codeInstructor.giveAssignment(
+    //     student,
+    //     new Assignment("title", "description")
+    //   );
+    // });
     break;
 
   default:
