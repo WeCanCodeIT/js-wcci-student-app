@@ -15,7 +15,7 @@ describe("CodeInstructor", () => {
 
       expect(() => {
         underTest.giveAssignment(testStudent, assignment);
-      }).toThrow("giveAssignment needs to receive a student");
+      }).toThrow("giveAssignment method must be passed an AssignmentReceiver");
     });
 
     test("should increase the number of assignments in a given student", () => {

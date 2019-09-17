@@ -5,41 +5,55 @@ const Student = require("./src/Student");
 const CodeInstructor = require("./src/CodeInstructor");
 const CodeAssignment = require("./src/CodeAssignment");
 
-console.log("Welcome to NotPoliSchool!");
-console.log("-------------------------");
-console.log();
-console.log("Please select an option: ");
-console.log("-------------------------");
-console.log();
-console.log("1. Print current cohort roster");
-console.log("2. Retrieve a specific Student");
-console.log("3. Give a code assignment to the cohort");
-console.log();
-console.log();
-
+// Initial App setup
 const javaScript = new Cohort();
 const codeInstructor = new CodeInstructor(javaScript);
 javaScript.addStudent(new Student("hrtwyhsx4436"));
 javaScript.addStudent(new Student("hremnsdrf62366", "Donny", "Hamilton"));
 
-const userSelection = input.question("Which option would you like to choose? ");
+let isRunning = true;
 
-switch (userSelection) {
-  case "1":
-    printCurrentRoster();
-    break;
+while (isRunning) {
+  console.log("Welcome to NotPoliSchool!");
+  console.log("-------------------------");
+  console.log();
+  console.log("Please select an option: ");
+  console.log("-------------------------");
+  console.log();
+  console.log("1. Print current cohort roster");
+  console.log("2. Retrieve a specific Student");
+  console.log("3. Give a code assignment to the cohort");
+  console.log("4. Quit");
+  console.log();
+  console.log();
 
-  case "2":
-    printIndividualStudent();
-    break;
+  const userSelection = input.question(
+    "Which option would you like to choose? "
+  );
 
-  case "3":
-    assignNewCodeAssignment();
-    break;
+  switch (userSelection) {
+    case "1":
+      printCurrentRoster();
+      break;
 
-  default:
-    break;
+    case "2":
+      printIndividualStudent();
+      break;
+
+    case "3":
+      assignNewCodeAssignment();
+      break;
+
+    case "4":
+      quit();
+      break;
+
+    default:
+      break;
+  }
 }
+
+// Extracted functions
 
 function assignNewCodeAssignment() {
   const assignmentTitle = input.question(
@@ -73,4 +87,8 @@ function printIndividualStudent() {
   );
   const student = javaScript.getStudent(selectedStudentId);
   console.log(`${student.getId()}: ${student.getFullName()}`);
+}
+
+function quit() {
+  isRunning = false;
 }

@@ -1,3 +1,7 @@
+/**
+ * implements: AssignmentReceiver
+ */
+
 class Student {
   isEnrolled() {
     return this.enrolled;
