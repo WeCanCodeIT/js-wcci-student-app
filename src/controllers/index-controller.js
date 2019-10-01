@@ -1,6 +1,6 @@
 class IndexController {
-  static renderHome(req, res) {
-    res.render("index", { title: "WCCI" });
+  static redirectToStudents(req, res) {
+    res.redirect("/students");
   }
 }
 

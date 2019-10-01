@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --dark: #345;
+  --dark-green: #a3a380;
+  --dark-pink: #bb8588;
+  --light: #efebce;
+  --light-green: #d6ce93;
+  --mid: #665;
+  --pink: #d8a48f;
+
+  color: var(--mid);
+  font: 20px/1 "Be Vietnam", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--dark);
+}
+
+img {
+  width: 100%;
+}
+
+/* App Specific Styles */
+.container {
+  margin: 0 auto;
+  max-width: 40rem;
+  width: 90%;
+}
+
+.container--three-column-grid {
+  display: grid;
+  grid-gap: 2rem 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.main-footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.main-header {
+  align-items: center;
+  background-color: var(--dark);
+  background-image: linear-gradient(150deg, var(--mid), var(--dark-green));
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+}
+
+.main-header__title {
+  color: var(--light);
+  font-size: 3rem;
+}
+
+.user-card {
+  align-items: flex-start;
+  border: 1px var(--mid) solid;
+  border-radius: 0.25rem;
+  box-shadow: 0px 1px 2px 0px var(--pink);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.user-card__address {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card__avatar-container {
+  align-self: stretch;
+}
+
+.user-card__email {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.user-card__email a {
+  color: var(--dark-green);
+  text-decoration: none;
+}
+
+.user-card__name {
+  color: var(--dark-pink);
+  font-size: 1rem;
+}
+
+.user-card__street {
+  font-size: 0.9rem;
+  margin-right: 0.25rem;
+}
+
+.user-card__street-container {
+  display: flex;
+}
+
+.user-card__suite {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.user-card__username {
+  color: var(--mid);
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.user-card__username::before {
+  content: "@";
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 6rem auto 8rem;
+  min-height: 100vh;
+}
