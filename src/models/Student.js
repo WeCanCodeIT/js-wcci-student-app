@@ -7,11 +7,12 @@ class Student {
     return this.enrolled;
   }
 
-  constructor(id, firstName = "John", lastName = "Doe") {
+  constructor(id, firstName = "John", lastName = "Doe", imageUrl) {
     this.assignments = [];
     this.enrolled = false;
     this.firstName = firstName;
     this.id = id;
+    this.imageUrl = imageUrl;
     this.lastName = lastName;
   }
 

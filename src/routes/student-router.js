@@ -3,7 +3,10 @@ var router = express.Router();
 
 const StudentController = require("../controllers/student-controller");
 
-/* GET home page. */
+/* GET all students. */
 router.get("/", StudentController.renderAll);
+
+// GET single student.
+router.get("/:id", StudentController.renderStudent);
 
 module.exports = router;

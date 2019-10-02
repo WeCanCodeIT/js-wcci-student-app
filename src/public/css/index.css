@@ -82,6 +82,7 @@ img {
 
 .user-card__avatar-container {
   align-self: stretch;
+  margin-bottom: auto;
 }
 
 .user-card__email {

@@ -1,11 +1,13 @@
 <div class="container container--three-column-grid">
   {{#each students}}
-  <article class="user-card">
-    <figure class="user-card__avatar-container">
-      <img class="user-card__avatar" src="https://placekitten.com/g/200/300" alt="user avatar" />
-    </figure>
-    <h3 class="user-card__name">{{firstName}} {{lastName}}</h3>
-    <h4 class="user-card__username">{{id}}</h4>
-  </article>
+  <a href="/students/{{id}}">
+    <article class="user-card">
+      <figure class="user-card__avatar-container">
+        <img class="user-card__avatar" src="{{imageUrl}}" alt="user avatar" />
+      </figure>
+      <h3 class="user-card__name">{{firstName}} {{lastName}}</h3>
+      <h4 class="user-card__username">{{id}}</h4>
+    </article>
+  </a>
   {{/each}}
 </div>
