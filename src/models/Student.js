@@ -3,40 +3,39 @@
  */
 
 class Student {
-  isEnrolled() {
+  isEnrolled () {
     return this.enrolled;
   }
 
-  constructor(id, firstName = "John", lastName = "Doe", imageUrl) {
+  constructor(firstName = "John", lastName = "Doe", imageUrl) {
     this.assignments = [];
     this.enrolled = false;
     this.firstName = firstName;
-    this.id = id;
     this.imageUrl = imageUrl;
     this.lastName = lastName;
   }
 
-  enroll() {
+  enroll () {
     this.enrolled = true;
   }
 
-  getAssignments() {
+  getAssignments () {
     return this.assignments;
   }
 
-  getAssignmentsLength() {
+  getAssignmentsLength () {
     return this.assignments.length;
   }
 
-  getFullName() {
+  getFullName () {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  getId() {
+  getId () {
     return this.id;
   }
 
-  graduate() {
+  graduate () {
     if (!this.enrolled) {
       throw new Error(
         "Student must be enrolled to be eligible for graduation."
@@ -45,7 +44,7 @@ class Student {
     this.enrolled = false;
   }
 
-  receiveAssignment(assignment) {
+  receiveAssignment (assignment) {
     this.assignments.push(assignment);
   }
 }

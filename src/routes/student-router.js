@@ -9,4 +9,7 @@ router.get("/", StudentController.renderAll);
 // GET single student.
 router.get("/:id", StudentController.renderStudent);
 
+// POST single student
+router.post("/", StudentController.addStudent)
+
 module.exports = router;
