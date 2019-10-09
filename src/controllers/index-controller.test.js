@@ -1,7 +1,7 @@
 const IndexController = require("./index-controller");
 
-describe("redirectToStudents", () => {
-  test("should call res.redirect with '/students' as an argument", () => {
+describe("redirectToCohorts", () => {
+  test("should call res.redirect with '/cohorts' as an argument", () => {
     // Arrange
     const requestMock = {};
     const responseMock = {
@@ -9,10 +9,10 @@ describe("redirectToStudents", () => {
     };
 
     // Act
-    IndexController.redirectToStudents(requestMock, responseMock);
+    IndexController.redirectToCohorts(requestMock, responseMock);
 
     // Assert
     expect(responseMock.redirect).toHaveBeenCalledTimes(1);
-    expect(responseMock.redirect).toHaveBeenCalledWith("/students");
+    expect(responseMock.redirect).toHaveBeenCalledWith("/cohorts");
   });
 });

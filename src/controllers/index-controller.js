@@ -1,6 +1,6 @@
 class IndexController {
-  static redirectToStudents(req, res) {
-    res.redirect("/students");
+  static redirectToCohorts (req, res) {
+    res.redirect("/cohorts");
   }
 }
 

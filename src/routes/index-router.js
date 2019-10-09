@@ -4,6 +4,6 @@ var router = express.Router();
 const IndexController = require("../controllers/index-controller");
 
 /* GET home page. */
-router.get("/", IndexController.redirectToStudents);
+router.get("/", IndexController.redirectToCohorts);
 
 module.exports = router;

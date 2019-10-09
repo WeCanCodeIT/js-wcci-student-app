@@ -39,10 +39,23 @@ img {
   width: 90%;
 }
 
+.container--margin-bottom {
+  margin-bottom: 2rem;
+}
+
 .container--three-column-grid {
   display: grid;
   grid-gap: 2rem 1rem;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.link-wrapper {
+  display: flex;
+  text-decoration: none;
+}
+
+.link-wrapper > * {
+  width: 100%;
 }
 
 .main-footer {

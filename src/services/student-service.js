@@ -1,19 +1,13 @@
 const Student = require('../models/Student.sequelize')
 
 module.exports = {
-  findAll () {
-    let students
-    Student.findAll().then((res) => {
-      students = res.dataValues
-      console.log(students)
-    });
-    return students;
+  findAll (callback) {
+    Student.findAll().then(callback);
   },
-  findById (id) {
-    const student = db.readSingleStudent(id);
-    return student;
+  findById (id, callback) {
+    Student.findByPk(id).then(callback)
   },
-  save (student) {
-    Student.create(student)
+  save (student, callback) {
+    Student.create(student).then(callback)
   }
 };

@@ -14,10 +14,10 @@ describe("GET /", () => {
       });
   });
 
-  test("should call IndexController.redirectToStudents once", () => {
-    IndexController.redirectToStudents = jest.fn();
+  test("should call IndexController.redirectToCohorts once", () => {
+    IndexController.redirectToCohorts = jest.fn();
     underTest.get("/").end((err, res) => {
-      expect(IndexController.redirectToStudents).toHaveBeenCalledTimes(1);
+      expect(IndexController.redirectToCohorts).toHaveBeenCalledTimes(1000);
       done();
     });
   });
