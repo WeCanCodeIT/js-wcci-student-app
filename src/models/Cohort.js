@@ -8,7 +8,8 @@ class Cohort {
   }
 
   getStudent(studentId) {
-    return this.students.get(studentId);
+    const student = this.students.get(studentId);
+    return student;
   }
 
   getStudentsArray() {

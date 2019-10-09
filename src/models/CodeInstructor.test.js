@@ -1,6 +1,6 @@
 const CodeInstructor = require("./CodeInstructor");
 const Student = require("./Student");
-const Assignment = require("./Assignment");
+const CodeAssignment = require("./CodeAssignment");
 const Cohort = require("./Cohort");
 
 describe("CodeInstructor", () => {
@@ -8,20 +8,20 @@ describe("CodeInstructor", () => {
     test("should throw an error when not given a student", () => {
       const underTest = new CodeInstructor();
       const testStudent = "Student";
-      const assignment = new Assignment(
+      const assignment = new CodeAssignment(
         "Virtual Pet",
         "An application that tracks Virtual Pets"
       );
 
       expect(() => {
         underTest.giveAssignment(testStudent, assignment);
-      }).toThrow("giveAssignment needs to receive a student");
+      }).toThrow("giveAssignment method must be passed an AssignmentReceiver");
     });
 
     test("should increase the number of assignments in a given student", () => {
       const underTest = new CodeInstructor();
       const testStudent = new Student("hnjastm54235", "Donny", "Hamilton");
-      const assignment = new Assignment(
+      const assignment = new CodeAssignment(
         "Virtual Pet",
         "An application that tracks Virtual Pets"
       );
@@ -35,7 +35,7 @@ describe("CodeInstructor", () => {
     test("should add given assignment to Student assignments", () => {
       const underTest = new CodeInstructor();
       const testStudent = new Student("hnjastm54235", "Donny", "Hamilton");
-      const assignment = new Assignment(
+      const assignment = new CodeAssignment(
         "Virtual Pet",
         "An application that tracks Virtual Pets"
       );
@@ -44,6 +44,12 @@ describe("CodeInstructor", () => {
       const studentAssignments = testStudent.getAssignments();
 
       expect(studentAssignments).toContain(assignment);
+    });
+
+    test("should have giveAssignment as an Assigner", () => {
+      const underTest = new CodeInstructor();
+
+      expect(typeof underTest.giveAssignment === "function").toBeTruthy();
     });
   });
 
@@ -61,7 +67,7 @@ describe("CodeInstructor", () => {
   describe("giveAssignmentToCohort", () => {
     test("should give an assignment to all students in a given cohort", () => {
       const underTest = new CodeInstructor(new Cohort());
-      const testAssignment = new Assignment("title", "description");
+      const testAssignment = new CodeAssignment("title", "description");
 
       const studentOne = new Student("asdgfkjloow34e452154");
       const studentTwo = new Student("asdgfkgdfasgyghr54");

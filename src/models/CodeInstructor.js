@@ -13,11 +13,14 @@ class CodeInstructor {
     return this.cohort.getStudentsArray();
   }
 
-  giveAssignment(studentToGiveAssignment, assignment) {
-    if (!(studentToGiveAssignment instanceof Student)) {
-      throw new Error("giveAssignment needs to receive a student");
+  giveAssignment(assignmentReceiver, assignment) {
+    if (typeof assignmentReceiver.receiveAssignment !== "function") {
+      // is an AssignmentReceiver
+      throw new Error(
+        "giveAssignment method must be passed an AssignmentReceiver"
+      );
     }
-    studentToGiveAssignment.receiveAssignment(assignment);
+    assignmentReceiver.receiveAssignment(assignment);
   }
 
   giveAssignmentToCohort(assignment) {
