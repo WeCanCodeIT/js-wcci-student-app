@@ -3,6 +3,7 @@ const input = require("readline-sync");
 const Cohort = require("./src/Cohort");
 const Student = require("./src/Student");
 const CodeInstructor = require("./src/CodeInstructor");
+const Assignment = require("./src/Assignment");
 
 console.log("Welcome to NotPoliSchool!");
 console.log("-------------------------");
@@ -33,16 +34,23 @@ switch (userSelection) {
     break;
 
   case "3":
-    // codeInstructor.getCohortStudents().forEach(student => {
-    //   codeInstructor.giveAssignment(
-    //     student,
-    //     new Assignment("title", "description")
-    //   );
-    // });
+    assignNewAssignment();
     break;
 
   default:
     break;
+}
+
+function assignNewAssignment() {
+  const assignmentTitle = input.question(
+    "What is the title of the assignment? "
+  );
+  const assignmentDescription = input.question(
+    "What is the assignments description? "
+  );
+  codeInstructor.giveAssignmentToCohort(
+    new Assignment(assignmentTitle, assignmentDescription)
+  );
 }
 
 function printCurrentRoster() {
