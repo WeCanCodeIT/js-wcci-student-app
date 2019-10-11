@@ -1,3 +1,4 @@
+const Cohort = require('./Cohort.sequelize')
 const Sequelize = require('sequelize')
 
 const sequelize = require('../data/db')
@@ -26,5 +27,8 @@ const Student = sequelize.define('student', {
     allowNull: false
   },
 });
+
+Student.belongsTo(Cohort, { constraints: true, onDelete: 'CASCADE' })
+Cohort.hasMany(Student)
 
 module.exports = Student
