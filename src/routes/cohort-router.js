@@ -7,9 +7,9 @@ const CohortController = require("../controllers/cohort-controller");
 router.get("/", CohortController.renderAll);
 
 // // GET single student.
-// router.get("/:id", StudentController.renderStudent);
+router.get("/:id", CohortController.renderSingle);
 
 // // POST single student
-// router.post("/", StudentController.addStudent)
+router.post("/", CohortController.addCohort)
 
 module.exports = router;

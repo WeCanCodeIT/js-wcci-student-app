@@ -3,17 +3,12 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const db = require('./src/data/db')
 
 const cohortRouter = require("./src/routes/cohort-router");
 const indexRouter = require("./src/routes/index-router");
 const studentRouter = require("./src/routes/student-router");
 
 const app = express();
-
-db.sync()
-  .then(() => console.log('DB Connected'))
-  .catch(console.error)
 
 // view engine setup
 app.set("views", path.join(__dirname, "src/views"));

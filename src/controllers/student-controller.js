@@ -1,26 +1,28 @@
+const cohortService = require('../services/cohort-service')
 const studentService = require("../services/student-service");
 const StudentDomainObject = require("../models/Student")
 
 class StudentController {
-  static addStudent (req, res) {
+  static async addStudent (req, res) {
     const firstName = req.body.firstName
     const lastName = req.body.lastName
     const imageUrl = req.body.imageUrl
+    const cohortId = Number(req.body.cohort)
 
-    studentService.save(new StudentDomainObject(firstName, lastName, imageUrl), (savedStudent) => {
-      res.redirect("/students")
-    })
+    const studentToAdd = new StudentDomainObject(firstName, lastName, imageUrl)
+    studentToAdd.cohortId = cohortId
+
+    await studentService.save(studentToAdd)
+    res.redirect("/students")
   }
-  static renderAll (req, res) {
-    studentService.findAll((students) => {
-      res.render("students/all", { students: students });
-    })
+  static async renderAll (req, res) {
+    res.render("students/all", { cohorts: await cohortService.findAll(), students: await studentService.findAll() });
   }
-  static renderStudent (req, res) {
+  static async renderSingle (req, res) {
     const studentId = Number(req.params.id);
-    studentService.findById(studentId, (student) => {
-      res.render("students/single", { student });
-    })
+    const student = await studentService.findById(studentId)
+    const cohort = await student.getCohort()
+    res.render("students/single", { cohort, student });
   }
 }
 

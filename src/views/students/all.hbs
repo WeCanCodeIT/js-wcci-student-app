@@ -3,6 +3,14 @@
     <label>First Name: <input type="text" name="firstName"></label>
     <label>Last Name: <input type="text" name="lastName"></label>
     <label>Image URL: <input type="text" name="imageUrl"></label>
+    <label>
+      Cohort:
+      <select name="cohort">
+        {{#each cohorts}}
+          <option value="{{id}}">{{language}}</option>
+        {{/each}}
+      </select>
+    </label>
     <button>Submit</button>
   </form>
 </div>

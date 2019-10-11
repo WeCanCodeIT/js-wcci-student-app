@@ -1,0 +1,13 @@
+<div class="container container--margin-bottom">
+  <form action="/cohorts" method="POST">
+    <label>Language: <input type="text" name="language"></label>
+    <button>Submit</button>
+  </form>
+</div>
+<div class="container container--three-column-grid">
+  {{#each cohorts}}
+    <a class="link-wrapper" href="/cohorts/{{id}}">
+      <h3>{{language}}</h3>
+    </a>
+  {{/each}}
+</div>

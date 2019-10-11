@@ -7,7 +7,7 @@ const StudentController = require("../controllers/student-controller");
 router.get("/", StudentController.renderAll);
 
 // GET single student.
-router.get("/:id", StudentController.renderStudent);
+router.get("/:id", StudentController.renderSingle);
 
 // POST single student
 router.post("/", StudentController.addStudent)

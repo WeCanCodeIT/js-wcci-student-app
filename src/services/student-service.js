@@ -1,13 +1,13 @@
 const Student = require('../models/Student.sequelize')
 
 module.exports = {
-  findAll (callback) {
-    Student.findAll().then(callback);
+  async findAll () {
+    return await Student.findAll()
   },
-  findById (id, callback) {
-    Student.findByPk(id).then(callback)
+  async findById (id) {
+    return await Student.findByPk(id)
   },
-  save (student, callback) {
-    Student.create(student).then(callback)
+  async save (student) {
+    await Student.create(student)
   }
 };
