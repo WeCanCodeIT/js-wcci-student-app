@@ -6,7 +6,7 @@ const StudentController = require("./student-controller");
 // }
 
 describe("rerenderAll", () => {
-  test.skip("should call res.render with 'students/all' and a valid model object", () => {
+  test("should call res.render with 'students/all' and a valid model object", () => {
     // Arrange
     const requestMock = {};
     const responseMock = {

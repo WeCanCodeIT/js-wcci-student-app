@@ -16,10 +16,10 @@ describe("CohortController", () => {
     })
 
     it("should call cohortService.findAll once", () => {
-      cohortService.findAll = jest.fn()
+      const spy = jest.spyOn(cohortService, 'findAll')
       CohortController.renderAll(requestMock, responseMock)
 
-      expect(cohortService.findAll).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledTimes(1)
     })
   })
 })
