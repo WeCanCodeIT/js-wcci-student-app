@@ -2,7 +2,7 @@
   <a href="/cohorts">Back to Cohorts Page</a>
   <h3>{{cohort.language}}</h3>
   <ul>
-    {{#each students}}
+    {{#each cohort.students}}
       <li><a href="/students/{{id}}">{{firstName}} {{lastName}}</a></li>
     {{/each}}
   </ul>
