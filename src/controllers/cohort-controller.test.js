@@ -3,13 +3,19 @@ const cohortService = require("../services/cohort-service")
 
 describe("CohortController", () => {
   describe("renderAll", () => {
-    const requestMock = {}
-    const responseMock = {
-      render: jest.fn()
-    }
+    let requestMock
+    let responseMock
 
-    test("should call res.render once with values 'cohorts/all' and a valid model object", () => {
-      CohortController.renderAll(requestMock, responseMock)
+    beforeEach(() => {
+      requestMock = {}
+      responseMock = {
+        render: jest.fn()
+      }
+    })
+
+    test("should call res.render once with values 'cohorts/all' and a valid model object", async () => {
+      cohortService.findAll = jest.fn(() => [])
+      await CohortController.renderAll(requestMock, responseMock)
 
       expect(responseMock.render).toHaveBeenCalledTimes(1)
       expect(responseMock.render).toHaveBeenCalledWith("cohorts/all", { cohorts: [] })
@@ -19,7 +25,7 @@ describe("CohortController", () => {
       const spy = jest.spyOn(cohortService, 'findAll')
       CohortController.renderAll(requestMock, responseMock)
 
-      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalled()
     })
   })
 })
