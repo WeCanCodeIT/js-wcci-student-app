@@ -11,6 +11,12 @@
         {{/each}}
       </select>
     </label>
+    <fieldset>
+      <h3>Assignments:</h3>
+      {{#each assignments}}
+        <label><input type="checkbox" name="assignments" value="{{id}}"> {{title}}</label>
+      {{/each}}
+    </fieldset>
     <button>Submit</button>
   </form>
 </div>

@@ -1,3 +1,4 @@
+const assignmentService = require('../services/assignment-service')
 const cohortService = require('../services/cohort-service')
 const studentService = require("../services/student-service");
 const StudentDomainObject = require("../models/Student")
@@ -8,20 +9,26 @@ module.exports = {
     const lastName = req.body.lastName
     const imageUrl = req.body.imageUrl
     const cohortId = Number(req.body.cohort)
+    const assignmentStringIds = req.body.assignments
+    const assignmentIds = []
+    assignmentStringIds.forEach(assignmentId => {
+      assignmentIds.push(Number(assignmentId))
+    })
 
     const studentToAdd = new StudentDomainObject(firstName, lastName, imageUrl)
     studentToAdd.cohortId = cohortId
 
-    await studentService.save(studentToAdd)
+    await studentService.save(studentToAdd, assignmentIds)
     res.redirect("/students")
   },
   async renderAll (req, res) {
-    res.render("students/all", { cohorts: await cohortService.findAll(), students: await studentService.findAll() });
+    res.render("students/all", { assignments: await assignmentService.findAll(), cohorts: await cohortService.findAll(), students: await studentService.findAll() });
   },
   async renderSingle (req, res) {
     const studentId = Number(req.params.id);
     const student = await studentService.findById(studentId)
     const cohort = await student.getCohort()
-    res.render("students/single", { cohort, student });
+    const assignments = await student.getAssignments()
+    res.render("students/single", { assignments, cohort, student });
   }
 }

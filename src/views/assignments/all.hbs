@@ -1,0 +1,13 @@
+<div class="container container--margin-bottom">
+  <form action="/assignments" method="POST">
+    <label>Title: <input type="text" name="title"></label>
+    <button>Submit</button>
+  </form>
+</div>
+<div class="container container--three-column-grid">
+  {{#each assignments}}
+    <a class="link-wrapper" href="/assignments/{{id}}">
+      <h3>{{title}}</h3>
+    </a>
+  {{/each}}
+</div>

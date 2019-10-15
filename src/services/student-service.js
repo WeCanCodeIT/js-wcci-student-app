@@ -7,7 +7,11 @@ module.exports = {
   async findById (id) {
     return await Student.findByPk(id)
   },
-  async save (student) {
-    await Student.create(student)
+  async save (student, assignmentIds) {
+    const newStudent = await Student.create(student)
+    newStudent.addAssignment(assignmentIds)
+    // assignmentIds.forEach(assignmentId => {
+    //   newStudent.addTag()
+    // })
   }
 };

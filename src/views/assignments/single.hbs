@@ -1,0 +1,9 @@
+<div class="container">
+  <a href="/assignments">Back to Cohorts Page</a>
+  <h3>{{assignment.language}}</h3>
+  <ul>
+    {{#each assignment.students}}
+      <li><a href="/students/{{id}}">{{firstName}} {{lastName}}</a></li>
+    {{/each}}
+  </ul>
+</div>

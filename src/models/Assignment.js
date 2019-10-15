@@ -1,10 +1,6 @@
 class Assignment {
-  constructor(title, description) {
-    if (this.constructor === Assignment) {
-      throw new Error("Assignment is abstract!");
-    }
+  constructor(title) {
     this.title = title;
-    this.description = description;
   }
 }
 
