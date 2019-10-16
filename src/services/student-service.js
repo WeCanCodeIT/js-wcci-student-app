@@ -9,9 +9,6 @@ module.exports = {
   },
   async save (student, assignmentIds) {
     const newStudent = await Student.create(student)
-    newStudent.addAssignment(assignmentIds)
-    // assignmentIds.forEach(assignmentId => {
-    //   newStudent.addTag()
-    // })
+    newStudent.addAssignments(assignmentIds)
   }
 };

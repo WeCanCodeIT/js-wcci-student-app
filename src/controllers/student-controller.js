@@ -9,7 +9,19 @@ module.exports = {
     const lastName = req.body.lastName
     const imageUrl = req.body.imageUrl
     const cohortId = Number(req.body.cohort)
-    const assignmentStringIds = req.body.assignments
+
+    // This is where I fucked up before
+    let assignmentStringIds
+
+    if (req.body.assignments === undefined) {
+      assignmentStringIds = []
+    } else if (typeof req.body.assignments === 'string') {
+      assignmentStringIds = [req.body.assignments]
+    } else {
+      assignmentStringIds = [...req.body.assignments]
+    }
+    // Do that ^^^
+
     const assignmentIds = []
     assignmentStringIds.forEach(assignmentId => {
       assignmentIds.push(Number(assignmentId))
